@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/paper.scss";
-
 const Paper = () => {
   return (
     <div className="paper">

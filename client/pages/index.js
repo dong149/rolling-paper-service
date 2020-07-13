@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Paper from "../components/Paper";
 
 const Index = () => (
   <div>
