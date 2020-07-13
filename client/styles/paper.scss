@@ -1,0 +1,11 @@
+@import "./font.scss";
+@import "./mixin.scss";
+
+.paper {
+  background-color: #12b886;
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+  color: white;
+  font-size: 20px;
+}
