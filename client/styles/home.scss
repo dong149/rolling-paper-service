@@ -1,0 +1,23 @@
+@import "./font.scss";
+@import "./mixin.scss";
+h1 {
+  font-size: 50px;
+  font-weight: lighter;
+  font-style: $spoqa-han-sans;
+}
+body {
+}
+.layout {
+  margin: 0 auto;
+  padding-top: 100px;
+  width: 375px;
+  height: 1000px;
+  text-align: center;
+  .rolling {
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #12b886;
+    width: 200px;
+    height: 200px;
+  }
+}

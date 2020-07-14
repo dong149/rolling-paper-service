@@ -7,7 +7,7 @@ const Start = () => {
   const [error, setError] = useState("");
 
   return (
-    <div>
+    <div className="layout">
       <h1>롤링페이퍼의 주인공은 누구인가요?</h1>
       <input type="text" onChange={(e) => setName(e.target.value)} />
       {!isEmpty(name) ? (

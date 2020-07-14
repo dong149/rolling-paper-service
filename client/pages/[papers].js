@@ -7,12 +7,14 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import rollingService from "../services/rollingService";
 const Papers = (props) => {
   const { rollings } = props;
-  console.log(rollings);
+  // console.log(rollings);
   const [content, setContent] = useState("");
   const [copied, setCopied] = useState(false);
   const router = useRouter();
   let name = router.query.papers;
-  console.log(name);
+  let encName = encodeURI(name);
+  // console.log(encName);
+  // console.log(name);
   const onSubmit = async () => {
     try {
       await rollingService
@@ -30,14 +32,14 @@ const Papers = (props) => {
     }
   };
   return (
-    <div>
+    <div className="layout">
       <h1>링크가 생성되었습니다. 친구들에게 공유하세요!</h1>
 
       <CopyToClipboard
-        text={`https://rolling-paper-service.vercel.app/${name}`}
+        text={`https://rolling-paper-service.vercel.app/${encName}`}
         onCopy={() => setCopied(true)}
       >
-        <h3>https://rolling-paper-service.vercel.app/{name}</h3>
+        <h3>https://rolling-paper-service.vercel.app/{encName}</h3>
       </CopyToClipboard>
       <br />
       <textarea rows="5" onChange={(e) => setContent(e.target.value)} />
