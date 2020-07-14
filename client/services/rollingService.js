@@ -3,12 +3,18 @@ import axios from "axios";
 let BASE_URL = "https://donghoon.tk";
 
 const baseAPI = axios.create({
-  baseUR: BASE_URL,
+  baseURL: BASE_URL,
 });
 
 const rollingService = {
   getRolling: async () => {
     let res = await baseAPI.get(`/api/rolling`);
+    return res.data || [];
+  },
+  getRollingByName: async (name) => {
+    let res = await baseAPI.get(`/api/rolling/`, {
+      params: { name: name },
+    });
     return res.data || [];
   },
   postRolling: async (object) => {
