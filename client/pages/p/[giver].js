@@ -6,6 +6,7 @@ import { isEmpty } from "../../functions";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import rollingService from "../../services/rollingService";
 import "../../styles/home.scss";
+import Head from "next/head";
 const Giver = (props) => {
   const { rollings } = props;
   // console.log(rollings);
@@ -18,6 +19,13 @@ const Giver = (props) => {
 
   return (
     <div className="layout">
+      <Head>
+        <title>롤링 페이퍼</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
+        />
+      </Head>
       <h1>{name} 님에게 보내는 롤링페이퍼입니다.</h1>
       <h2>생일 축하해요!</h2>
 

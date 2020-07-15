@@ -1,10 +1,18 @@
 import React from "react";
 import Link from "next/link";
 import Paper from "../components/Paper";
+import Head from "next/head";
 
 const Write = () => {
   return (
     <div className="layout">
+      <Head>
+        <title>롤링 페이퍼</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
+        />
+      </Head>
       <h2>링크가 생성되었습니다. 친구들에게 공유하세요!</h2>
       <h3>https://rollingpaper/?donghoonryoo</h3>
       <Link href="/">
