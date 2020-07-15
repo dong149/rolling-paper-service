@@ -6,6 +6,7 @@ import { isEmpty } from "../functions";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import rollingService from "../services/rollingService";
 import "../styles/home.scss";
+import "../styles/papers.scss";
 import Head from "next/head";
 const Papers = (props) => {
   const { rollings } = props;
@@ -44,14 +45,7 @@ const Papers = (props) => {
       },
       buttons: [
         {
-          title: "웹으로 이동",
-          link: {
-            webUrl: `https://rollingpaper.site/${name}`,
-            mobileWebUrl: `https://rollingpaper.site/${name}`,
-          },
-        },
-        {
-          title: "앱으로 이동",
+          title: "쓰러 가기",
           link: {
             webUrl: `https://rollingpaper.site/${name}`,
             mobileWebUrl: `https://rollingpaper.site/${name}`,
@@ -85,14 +79,7 @@ const Papers = (props) => {
       },
       buttons: [
         {
-          title: "웹으로 이동",
-          link: {
-            webUrl: `https://rollingpaper.site/p/${name}`,
-            mobileWebUrl: `https://rollingpaper.site/p/${name}`,
-          },
-        },
-        {
-          title: "앱으로 이동",
+          title: "보러 가기",
           link: {
             webUrl: `https://rollingpaper.site/p/${name}`,
             mobileWebUrl: `https://rollingpaper.site/p/${name}`,
@@ -125,25 +112,27 @@ const Papers = (props) => {
   };
   return (
     <div className="layout">
-      <Head>
+      {/* <Head>
         <title>롤링 페이퍼</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
         />
-      </Head>
+      </Head> */}
       <h1>{name} 님에게 보내는 롤링페이퍼입니다.</h1>
       <h2>링크가 생성되었습니다. 친구들에게 공유하세요!</h2>
 
       <CopyToClipboard
-        text={`https://rolling-paper-service.vercel.app/${encName}`}
+        text={`https://rollingpaper.site/${encName}`}
         onCopy={() => setCopied(true)}
       >
-        <h3>https://rolling-paper-service.vercel.app/{encName}</h3>
+        <span className="link">https://rollingpaper.site/{encName}</span>
       </CopyToClipboard>
-      <a id="kakao-link-btn">
-        <button>공유</button>
-      </a>
+      <div className="share-btn-wrap">
+        <a id="kakao-link-btn" className="share-btn">
+          <span>공유하기</span>
+        </a>
+      </div>
       <br />
       <textarea rows="5" onChange={(e) => setContent(e.target.value)} />
       {!isEmpty(content) && (
@@ -153,14 +142,19 @@ const Papers = (props) => {
       <br />
 
       <br />
-      <Link href="/">
-        <button>돌아가기</button>
-      </Link>
+      {/* <Link href="/">
+        <span className="back-btn">돌아가기</span>
+      </Link> */}
+
       <Link href={`/p/${name}`}>
-        <button>어떻게 보여지는지 확인하기</button>
+        <div className="preview-btn-wrap">
+          <span className="preview-btn">테스트하기</span>
+        </div>
       </Link>
       <a id="kakao-link-btn-giver">
-        <button>주인공에게 공유</button>
+        <div className="present-btn-wrap">
+          <span className="present-btn">주인공에게 공유</span>
+        </div>
       </a>
       {rollings.map((object) => {
         if (object.name === name) {

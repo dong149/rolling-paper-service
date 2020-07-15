@@ -1,0 +1,43 @@
+@import "./font.scss";
+@import "./mixin.scss";
+
+.link {
+  font-style: $spoqa-han-sans;
+  color: grey;
+  font-size: 14px;
+}
+
+.share-btn-wrap {
+  margin-top: 20px;
+  cursor: pointer;
+  .share-btn {
+    font-size: 30px;
+    font-weight: lighter;
+
+    &:hover {
+      font-weight: normal;
+    }
+  }
+}
+
+.preview-btn-wrap {
+  cursor: pointer;
+  .preview-btn {
+    font-size: 30px;
+    font-weight: lighter;
+  }
+  &:hover {
+    font-weight: normal;
+  }
+}
+
+.present-btn-wrap {
+  cursor: pointer;
+  .present-btn {
+    font-size: 30px;
+    font-weight: lighter;
+  }
+  &:hover {
+    font-weight: normal;
+  }
+}
