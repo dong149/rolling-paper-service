@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Paper from "../components/Paper";
+import Paper from "../../components/Paper";
 import { useRouter } from "next/router";
-import { isEmpty } from "../functions";
+import { isEmpty } from "../../functions";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import rollingService from "../services/rollingService";
-import "../styles/home.scss";
-const Papers = (props) => {
+import rollingService from "../../services/rollingService";
+import "../../styles/home.scss";
+const Giver = (props) => {
   const { rollings } = props;
   // console.log(rollings);
   const [content, setContent] = useState("");
   const [copied, setCopied] = useState(false);
   const router = useRouter();
-  let name = router.query.papers;
+  let name = router.query.giver;
   let encName = encodeURI(name);
   // console.log(encName);
   // console.log(name);
@@ -64,47 +64,6 @@ const Papers = (props) => {
         console.log(error);
       },
     });
-    window.Kakao.Link.createDefaultButton({
-      container: "#kakao-link-btn-giver",
-      objectType: "feed",
-      content: {
-        title: `${name}님 생일 축하드립니다!`,
-        description: "친구들이 준비한 선물",
-        imageUrl:
-          "https://github.com/dong149/image_resources/blob/master/rollingpaper/rollingpaper.png?raw=true",
-        link: {
-          webUrl: `https://rollingpaper.site/p/${name}`,
-          mobileWebUrl: `https://rollingpaper.site/p/${name}`,
-        },
-      },
-      social: {
-        likeCount: 100,
-        commentCount: 202,
-        sharedCount: 303,
-      },
-      buttons: [
-        {
-          title: "웹으로 이동",
-          link: {
-            webUrl: `https://rollingpaper.site/p/${name}`,
-            mobileWebUrl: `https://rollingpaper.site/p/${name}`,
-          },
-        },
-        {
-          title: "앱으로 이동",
-          link: {
-            webUrl: `https://rollingpaper.site/p/${name}`,
-            mobileWebUrl: `https://rollingpaper.site/p/${name}`,
-          },
-        },
-      ],
-      success: function (response) {
-        console.log(response);
-      },
-      fail: function (error) {
-        console.log(error);
-      },
-    });
   }, []);
   const onSubmit = async () => {
     try {
@@ -125,7 +84,7 @@ const Papers = (props) => {
   return (
     <div className="layout">
       <h1>{name} 님에게 보내는 롤링페이퍼입니다.</h1>
-      <h2>링크가 생성되었습니다. 친구들에게 공유하세요!</h2>
+      <h2>생일 축하해요!</h2>
 
       <CopyToClipboard
         text={`https://rolling-paper-service.vercel.app/${encName}`}
@@ -148,9 +107,9 @@ const Papers = (props) => {
       <Link href="/">
         <button>돌아가기</button>
       </Link>
-      <a id="kakao-link-btn-giver">
-        <button>주인공에게 공유</button>
-      </a>
+      <Link href="/">
+        <button>주인공에게 공유하기</button>
+      </Link>
       {rollings.map((object) => {
         if (object.name === name) {
           return (
@@ -162,11 +121,11 @@ const Papers = (props) => {
   );
 };
 
-Papers.getInitialProps = async () => {
+Giver.getInitialProps = async () => {
   const res = await rollingService.getRolling();
   return {
     rollings: res,
   };
 };
 
-export default Papers;
+export default Giver;
