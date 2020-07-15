@@ -6,10 +6,10 @@ export default class RootDocument extends Document {
       <html>
         <Head>
           <meta charSet="utf-8" />
-          <meta
+          {/* <meta
             name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
-          />
+            content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
+          /> */}
           <meta name="description" content="Dev.log" />
           <meta
             name="keywords"

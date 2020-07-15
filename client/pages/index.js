@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import Paper from "../components/Paper";
 import "../styles/home.scss";
+import Head from "next/head";
 const Index = () => {
   //   useEffect(() => {
   //     window.Kakao.init("28ff1d35692191420def0e22e9d6941b");
@@ -48,6 +49,13 @@ const Index = () => {
 
   return (
     <div>
+      <Head>
+        <title>롤링 페이퍼</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
+        />
+      </Head>
       <div className="layout">
         <div className="rolling"></div>
         <h1>롤링페이퍼</h1>
