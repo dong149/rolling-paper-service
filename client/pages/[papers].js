@@ -148,6 +148,9 @@ const Papers = (props) => {
       <Link href="/">
         <button>돌아가기</button>
       </Link>
+      <Link href={`/p/${name}`}>
+        <button>어떻게 보여지는지 확인하기</button>
+      </Link>
       <a id="kakao-link-btn-giver">
         <button>주인공에게 공유</button>
       </a>
