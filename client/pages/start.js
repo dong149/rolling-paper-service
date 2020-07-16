@@ -17,7 +17,7 @@ const Start = () => {
           content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
         />
       </Head>
-      <img className="question-logo" src="/q.png" alt="질문" />
+      <img className="question-logo" src="/q.jpeg" alt="질문" />
       <div className="question">
         <span>
           주인공의

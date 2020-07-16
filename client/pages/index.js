@@ -60,12 +60,12 @@ const Index = () => {
       <div className="layout">
         <img
           className="lefthanders"
-          src="/lefthanders.png"
+          src="/lefthanders.jpeg"
           alt="왼손잡이들 로고"
         />
         {/* <div className="rolling"></div> */}
-        <img className="logo" src="/pen.png" alt="롤링페이퍼 메인" />
-        <img className="logo" src="/rolling.png" alt="롤링페이퍼 로고" />
+        <img className="logo" src="/pen.jpeg" alt="롤링페이퍼 메인" />
+        <img className="logo" src="/rolling.jpeg" alt="롤링페이퍼 로고" />
         {/* <h1>롤링페이퍼</h1> */}
         {/* <a id="kakao-link-btn">
           
