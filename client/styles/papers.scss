@@ -2,42 +2,39 @@
 @import "./mixin.scss";
 
 .link {
-  font-style: $spoqa-han-sans;
+  // font-style: $spoqa-han-sans;
   color: grey;
   font-size: 14px;
 }
 
-.share-btn-wrap {
-  margin-top: 20px;
-  cursor: pointer;
-  .share-btn {
-    font-size: 30px;
-    font-weight: lighter;
+.rolling-paper {
+  width: 100%;
+  margin: 0 auto;
+  align-content: center;
+  text-align: center;
 
-    &:hover {
-      font-weight: normal;
+  .intro {
+    text-align: center;
+  }
+  .papers {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    .paper {
+      // background-color: #12b886;
+      justify-content: center;
+      width: 200px;
+      margin-left: 10px;
+      margin-right: 10px;
+      padding: 10px;
+      height: 300px;
+      font-size: 20px;
+      margin-top: 20px;
+      // color: white;
+      font-size: 15px;
+      text-align: left;
     }
-  }
-}
-
-.preview-btn-wrap {
-  cursor: pointer;
-  .preview-btn {
-    font-size: 30px;
-    font-weight: lighter;
-  }
-  &:hover {
-    font-weight: normal;
-  }
-}
-
-.present-btn-wrap {
-  cursor: pointer;
-  .present-btn {
-    font-size: 30px;
-    font-weight: lighter;
-  }
-  &:hover {
-    font-weight: normal;
   }
 }

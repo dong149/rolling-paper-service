@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import Paper from "../components/Paper";
 import "../styles/home.scss";
+import "../styles/papers.scss";
 import Head from "next/head";
 const Index = () => {
   //   useEffect(() => {
@@ -57,14 +58,23 @@ const Index = () => {
         />
       </Head>
       <div className="layout">
-        <div className="rolling"></div>
-        <h1>롤링페이퍼</h1>
+        <img
+          className="lefthanders"
+          src="/lefthanders.png"
+          alt="왼손잡이들 로고"
+        />
+        {/* <div className="rolling"></div> */}
+        <img className="logo" src="/pen.png" alt="롤링페이퍼 메인" />
+        <img className="logo" src="/rolling.png" alt="롤링페이퍼 로고" />
+        {/* <h1>롤링페이퍼</h1> */}
         {/* <a id="kakao-link-btn">
           
           <button>공유</button>
         </a> */}
         <Link href="/start">
-          <button>시작하기</button>
+          <div className="start-btn">
+            <span>시작하기</span>
+          </div>
         </Link>
       </div>
     </div>

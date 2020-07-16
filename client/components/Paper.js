@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/paper.scss";
+import "../styles/papers.scss";
 const Paper = (props) => {
   const { content } = props;
   return <div className="paper">{content}</div>;

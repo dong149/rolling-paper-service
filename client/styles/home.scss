@@ -5,17 +5,222 @@ h1 {
   font-weight: lighter;
   font-style: $spoqa-han-sans;
 }
+body {
+  font-family: $nanum-square;
+}
 .layout {
+  display: flex;
   margin: 0 auto;
-  padding-top: 80px;
-  width: 375px;
 
+  width: 375px;
+  align-items: center;
   text-align: center;
+  flex-direction: column;
+  .lefthanders {
+    margin-top: 30px;
+    margin-bottom: 70px;
+    width: 30%;
+    min-width: 100px;
+  }
   .rolling {
     margin: 0 auto;
     margin-top: 100px;
     background-color: #12b886;
     width: 200px;
     height: 200px;
+  }
+  .logo {
+    margin: 0 auto;
+    width: 375px;
+  }
+  .start-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f64c71;
+    color: white;
+    margin-top: 30px;
+    height: 60px;
+    width: 100%;
+    cursor: pointer;
+    max-width: 300px;
+    font-size: 18px;
+    border-radius: 30px;
+    &:hover {
+      background-color: #f82c83;
+    }
+  }
+
+  .question-logo {
+    margin-top: 70px;
+    width: 30%;
+    min-width: 100px;
+  }
+  .question {
+    width: 300px;
+    font-size: 30px;
+    margin-top: 3px;
+    font-weight: lighter;
+    text-align: left;
+  }
+  .name-input-wrap {
+    margin-top: 30px;
+    width: 300px;
+    border: 1px solid grey;
+
+    .name-input {
+      padding: 0 2px 0 2px;
+      width: 280px;
+      height: 40px;
+      border: none;
+      font-size: 20px;
+      font-weight: normal;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .create-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f64c71;
+    color: white;
+    margin-top: 30px;
+    height: 60px;
+    width: 100%;
+    cursor: pointer;
+    max-width: 300px;
+    font-size: 18px;
+    border-radius: 30px;
+    &:hover {
+      background-color: #f82c83;
+    }
+  }
+  .inactive-create-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    color: white;
+    margin-top: 30px;
+    height: 60px;
+    width: 100%;
+    cursor: pointer;
+    max-width: 300px;
+    font-size: 18px;
+    border-radius: 30px;
+  }
+  .back-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    margin-top: 10px;
+    height: 60px;
+    width: 100%;
+    cursor: pointer;
+    max-width: 300px;
+    font-size: 18px;
+    border-radius: 30px;
+    &:hover {
+      background-color: #222222;
+    }
+  }
+  .content {
+    text-align: left;
+    width: 300px;
+    .content-header {
+      font-size: 30px;
+    }
+    .content-input-wrap {
+      width: 300px;
+      .content-input {
+        font-size: 22px;
+        width: 100%;
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .author {
+    text-align: right;
+    width: 300px;
+
+    .author-input-wrap {
+      display: inline-block;
+      width: 100px;
+      .author-input {
+        width: 100%;
+        font-size: 30px;
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .author-text {
+      font-size: 30px;
+      display: inline-block;
+    }
+  }
+  .share-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f64c71;
+    color: white;
+    margin-top: 30px;
+
+    height: 60px;
+    width: 100%;
+    cursor: pointer;
+    max-width: 300px;
+    font-size: 18px;
+    border-radius: 30px;
+    &:hover {
+      background-color: #f82c83;
+    }
+  }
+
+  .preview-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f64c71;
+    color: white;
+    margin-top: 30px;
+    height: 60px;
+    width: 100%;
+    cursor: pointer;
+    max-width: 300px;
+    font-size: 18px;
+    border-radius: 30px;
+    &:hover {
+      background-color: #f82c83;
+    }
+  }
+
+  .present-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f64c71;
+    color: white;
+    margin-top: 30px;
+    height: 60px;
+    width: 100%;
+    cursor: pointer;
+    max-width: 300px;
+    font-size: 18px;
+    border-radius: 30px;
+    &:hover {
+      background-color: #f82c83;
+    }
   }
 }

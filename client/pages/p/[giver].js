@@ -6,6 +6,7 @@ import { isEmpty } from "../../functions";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import rollingService from "../../services/rollingService";
 import "../../styles/home.scss";
+import "../../styles/papers.scss";
 import Head from "next/head";
 const Giver = (props) => {
   const { rollings } = props;
@@ -18,7 +19,7 @@ const Giver = (props) => {
   // console.log(name);
 
   return (
-    <div className="layout">
+    <div className="rolling-paper">
       <Head>
         <title>롤링 페이퍼</title>
         <meta
@@ -26,16 +27,19 @@ const Giver = (props) => {
           content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
         />
       </Head>
-      <h1>{name} 님에게 보내는 롤링페이퍼입니다.</h1>
-      <h2>생일 축하해요!</h2>
-
-      {rollings.map((object) => {
-        if (object.name === name) {
-          return (
-            <Paper key={object._id} name={name} content={object.content} />
-          );
-        }
-      })}
+      <header className="intro">
+        <h1>{name} 님</h1>
+        <h2>생일 축하드려요!</h2>
+      </header>
+      <div className="papers">
+        {rollings.map((object) => {
+          if (object.name === name) {
+            return (
+              <Paper key={object._id} name={name} content={object.content} />
+            );
+          }
+        })}
+      </div>
     </div>
   );
 };

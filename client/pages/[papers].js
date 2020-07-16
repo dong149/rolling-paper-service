@@ -104,6 +104,7 @@ const Papers = (props) => {
         .then((res) => {
           alert("성공적으로 등록되었습니다.");
           setContent("");
+          window.location.reload();
         });
     } catch (err) {
       console.log(err);
@@ -120,49 +121,60 @@ const Papers = (props) => {
         />
       </Head> */}
       <h1>{name} 님에게 보내는 롤링페이퍼입니다.</h1>
-      <h2>링크가 생성되었습니다. 친구들에게 공유하세요!</h2>
+
+      <div className="content">
+        <span className="content-header">to {name}</span>
+        <div className="content-input-wrap">
+          <textarea
+            className="content-input"
+            rows="10"
+            placeholder={`여기에 ${name}님에게 남기고 싶으신 말을 편하게 작성해주시면 됩니다.`}
+            onChange={(e) => setContent(e.target.value)}
+          />
+        </div>
+      </div>
+      <div className="author">
+        <div className="author-input-wrap">
+          <input type="text" className="author-input" placeholder="홍길동" />
+        </div>
+        <span className="author-text">올림</span>
+      </div>
+
+      {/* <h2>링크가 생성되었습니다. 친구들에게 공유하세요!</h2>
 
       <CopyToClipboard
         text={`https://rollingpaper.site/${encName}`}
         onCopy={() => setCopied(true)}
       >
         <span className="link">https://rollingpaper.site/{encName}</span>
-      </CopyToClipboard>
-      <div className="share-btn-wrap">
-        <a id="kakao-link-btn" className="share-btn">
-          <span>공유하기</span>
-        </a>
-      </div>
-      <br />
-      <textarea rows="5" onChange={(e) => setContent(e.target.value)} />
+      </CopyToClipboard> */}
+      <a id="kakao-link-btn" className="share-btn">
+        <span>공유하기</span>
+      </a>
+
       {!isEmpty(content) && (
         <button onClick={() => onSubmit()}>제출하기</button>
       )}
 
-      <br />
-
-      <br />
       {/* <Link href="/">
         <span className="back-btn">돌아가기</span>
       </Link> */}
 
       <Link href={`/p/${name}`}>
-        <div className="preview-btn-wrap">
-          <span className="preview-btn">테스트하기</span>
+        <div className="preview-btn">
+          <span>테스트하기</span>
         </div>
       </Link>
-      <a id="kakao-link-btn-giver">
-        <div className="present-btn-wrap">
-          <span className="present-btn">주인공에게 공유</span>
-        </div>
+      <a id="kakao-link-btn-giver" className="present-btn">
+        <span>주인공에게 공유</span>
       </a>
-      {rollings.map((object) => {
+      {/* {rollings.map((object) => {
         if (object.name === name) {
           return (
             <Paper key={object._id} name={name} content={object.content} />
           );
         }
-      })}
+      })} */}
     </div>
   );
 };
