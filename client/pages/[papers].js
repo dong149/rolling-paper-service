@@ -70,7 +70,7 @@ const Papers = (props) => {
         title: `${name}님 생일 축하드립니다!`,
         description: "친구들이 준비한 선물",
         imageUrl:
-          "https://github.com/dong149/image_resources/blob/master/rollingpaper/rollingpaper.png?raw=true",
+          "https://github.com/dong149/image_resources/blob/master/rollingpaper/rollingpaper_thumbnail.jpeg?raw=true",
         link: {
           webUrl: `https://rollingpaper.site/p/${name}`,
           mobileWebUrl: `https://rollingpaper.site/p/${name}`,
