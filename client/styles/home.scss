@@ -16,8 +16,8 @@ body {
   text-align: center;
   flex-direction: column;
   .lefthanders {
-    margin-top: 30px;
-    margin-bottom: 70px;
+    margin-top: 10px;
+    margin-bottom: 30px;
     width: 30%;
     min-width: 100px;
   }
@@ -146,6 +146,7 @@ body {
   // [papers].js
   .paper-head {
     width: 300px;
+    margin: 0 auto;
     text-align: left;
     font-size: 35px;
     margin-bottom: 10px;
@@ -153,7 +154,9 @@ body {
   .content {
     text-align: left;
     width: 300px;
-    margin-top: 40px;
+
+    margin: 0 auto;
+    margin-top: 20px;
     .content-header {
       font-size: 25px;
     }
@@ -196,12 +199,19 @@ body {
       display: inline-block;
     }
   }
+  .next-btn {
+    margin: 0 auto;
+    margin-top: 20px;
+    color: #f64c71;
+    font-size: 18px;
+  }
   .share-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f64c71;
     color: white;
+    margin: 0 auto;
     margin-top: 30px;
 
     height: 60px;
@@ -221,6 +231,7 @@ body {
     align-items: center;
     background-color: #f64c71;
     color: white;
+    margin: 0 auto;
     margin-top: 30px;
     height: 60px;
     width: 100%;
@@ -239,6 +250,7 @@ body {
     align-items: center;
     background-color: #f64c71;
     color: white;
+    margin: 0 auto;
     margin-top: 30px;
     height: 60px;
     width: 100%;

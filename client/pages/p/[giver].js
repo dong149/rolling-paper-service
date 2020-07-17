@@ -24,7 +24,7 @@ const Giver = (props) => {
         <title>롤링 페이퍼</title>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
+          content="width=device-width, initial-scale=0.5 ,user-scalable=no, maximum-scale=1"
         />
       </Head>
       <header className="intro">

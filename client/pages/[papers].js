@@ -22,7 +22,10 @@ const Papers = (props) => {
 
   useEffect(() => {
     // console.log(window.Kakao);
-    if (isEmpty(window.Kakao.Link)) {
+    // if (isEmpty(window.Kakao.Link)) {
+    //   window.Kakao.init("28ff1d35692191420def0e22e9d6941b");
+    // }
+    if (!window.Kakao.isInitialized()) {
       window.Kakao.init("28ff1d35692191420def0e22e9d6941b");
     }
 
@@ -126,7 +129,6 @@ const Papers = (props) => {
           return (
             <ReactFullpage.Wrapper>
               <div className="section">
-                <div style={{ marginTop: "70px" }}></div>
                 <div className="paper-head">
                   <span>{name}님</span>
                 </div>
@@ -134,7 +136,9 @@ const Papers = (props) => {
                   <span>에게 보내는</span>
                 </div>
                 <div className="paper-head">
-                  <span>롤링페이퍼입니다.</span>
+                  <span>
+                    <span style={{ color: "#f64c71" }}>롤링페이퍼</span>입니다.
+                  </span>
                 </div>
 
                 <div className="content">
@@ -158,15 +162,27 @@ const Papers = (props) => {
                   </div>
                   <span className="author-text">올림</span>
                 </div>
+                {!isEmpty(content) ? (
+                  <div className="preview-btn" onClick={() => onSubmit()}>
+                    <span>제출하기</span>
+                  </div>
+                ) : (
+                  <div
+                    style={{ backgroundColor: "#222222", color: "#fffeef" }}
+                    className="preview-btn"
+                    onClick={() => onSubmit()}
+                  >
+                    <span>제출하기</span>
+                  </div>
+                )}
+                <div className="next-btn">
+                  <span>▼</span>
+                </div>
               </div>
               <div className="section">
                 <a id="kakao-link-btn" className="share-btn">
                   <span>공유하기</span>
                 </a>
-
-                {!isEmpty(content) && (
-                  <button onClick={() => onSubmit()}>제출하기</button>
-                )}
 
                 {/* <Link href="/">
         <span className="back-btn">돌아가기</span>
