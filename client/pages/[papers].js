@@ -8,6 +8,7 @@ import rollingService from "../services/rollingService";
 import "../styles/home.scss";
 import "../styles/papers.scss";
 import Head from "next/head";
+import ReactFullpage from "@fullpage/react-fullpage";
 const Papers = (props) => {
   const { rollings } = props;
   // console.log(rollings);
@@ -120,25 +121,70 @@ const Papers = (props) => {
           content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
         />
       </Head> */}
-      <h1>{name} 님에게 보내는 롤링페이퍼입니다.</h1>
+      <ReactFullpage
+        render={() => {
+          return (
+            <ReactFullpage.Wrapper>
+              <div className="section">
+                <div style={{ marginTop: "70px" }}></div>
+                <div className="paper-head">
+                  <span>{name}님</span>
+                </div>
+                <div className="paper-head">
+                  <span>에게 보내는</span>
+                </div>
+                <div className="paper-head">
+                  <span>롤링페이퍼입니다.</span>
+                </div>
 
-      <div className="content">
-        <span className="content-header">to {name}</span>
-        <div className="content-input-wrap">
-          <textarea
-            className="content-input"
-            rows="10"
-            placeholder={`여기에 ${name}님에게 남기고 싶으신 말을 편하게 작성해주시면 됩니다.`}
-            onChange={(e) => setContent(e.target.value)}
-          />
-        </div>
-      </div>
-      <div className="author">
-        <div className="author-input-wrap">
-          <input type="text" className="author-input" placeholder="홍길동" />
-        </div>
-        <span className="author-text">올림</span>
-      </div>
+                <div className="content">
+                  <span className="content-header">to {name}</span>
+                  <div className="content-input-wrap">
+                    <textarea
+                      className="content-input"
+                      rows="10"
+                      placeholder={`여기에 ${name}님에게 남기고 싶으신 말을 편하게 작성해주시면 됩니다.`}
+                      onChange={(e) => setContent(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="author">
+                  <div className="author-input-wrap">
+                    <input
+                      type="text"
+                      className="author-input"
+                      placeholder="홍길동"
+                    />
+                  </div>
+                  <span className="author-text">올림</span>
+                </div>
+              </div>
+              <div className="section">
+                <a id="kakao-link-btn" className="share-btn">
+                  <span>공유하기</span>
+                </a>
+
+                {!isEmpty(content) && (
+                  <button onClick={() => onSubmit()}>제출하기</button>
+                )}
+
+                {/* <Link href="/">
+        <span className="back-btn">돌아가기</span>
+      </Link> */}
+
+                <Link href={`/p/${name}`}>
+                  <div className="preview-btn">
+                    <span>테스트하기</span>
+                  </div>
+                </Link>
+                <a id="kakao-link-btn-giver" className="present-btn">
+                  <span>주인공에게 공유</span>
+                </a>
+              </div>
+            </ReactFullpage.Wrapper>
+          );
+        }}
+      />
 
       {/* <h2>링크가 생성되었습니다. 친구들에게 공유하세요!</h2>
 
@@ -148,26 +194,7 @@ const Papers = (props) => {
       >
         <span className="link">https://rollingpaper.site/{encName}</span>
       </CopyToClipboard> */}
-      <a id="kakao-link-btn" className="share-btn">
-        <span>공유하기</span>
-      </a>
 
-      {!isEmpty(content) && (
-        <button onClick={() => onSubmit()}>제출하기</button>
-      )}
-
-      {/* <Link href="/">
-        <span className="back-btn">돌아가기</span>
-      </Link> */}
-
-      <Link href={`/p/${name}`}>
-        <div className="preview-btn">
-          <span>테스트하기</span>
-        </div>
-      </Link>
-      <a id="kakao-link-btn-giver" className="present-btn">
-        <span>주인공에게 공유</span>
-      </a>
       {/* {rollings.map((object) => {
         if (object.name === name) {
           return (

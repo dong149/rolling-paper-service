@@ -63,14 +63,15 @@ body {
   }
 
   .question-logo {
-    margin-top: 70px;
+    // margin-top: 30px;
+    margin-bottom: 50px;
     width: 30%;
     min-width: 100px;
   }
   .question {
     width: 300px;
     font-size: 30px;
-    margin-top: 3px;
+    margin-bottom: 10px;
     font-weight: lighter;
     text-align: left;
   }
@@ -78,14 +79,14 @@ body {
     margin-top: 30px;
     width: 300px;
     border: 1px solid grey;
-
+    border-radius: 30px;
     .name-input {
       padding: 0 2px 0 2px;
-      width: 280px;
+      width: 260px;
       height: 40px;
       border: none;
-      font-size: 20px;
-      font-weight: normal;
+      font-size: 18px;
+      font-weight: lighter;
 
       &:focus {
         outline: none;
@@ -141,17 +142,31 @@ body {
       background-color: #222222;
     }
   }
+
+  // [papers].js
+  .paper-head {
+    width: 300px;
+    text-align: left;
+    font-size: 35px;
+    margin-bottom: 10px;
+  }
   .content {
     text-align: left;
     width: 300px;
+    margin-top: 40px;
     .content-header {
-      font-size: 30px;
+      font-size: 25px;
     }
     .content-input-wrap {
       width: 300px;
+      margin-top: 15px;
+      border: 1px solid grey;
+      border-radius: 30px;
+      text-align: center;
+      padding-top: 10px;
       .content-input {
-        font-size: 22px;
-        width: 100%;
+        font-size: 17px;
+        width: 80%;
         border: none;
         &:focus {
           outline: none;
@@ -161,14 +176,15 @@ body {
   }
   .author {
     text-align: right;
+    margin-top: 10px;
     width: 300px;
-
+    font-size: 22px;
     .author-input-wrap {
       display: inline-block;
       width: 100px;
       .author-input {
         width: 100%;
-        font-size: 30px;
+        font-size: 22px;
         border: none;
         &:focus {
           outline: none;
@@ -176,7 +192,7 @@ body {
       }
     }
     .author-text {
-      font-size: 30px;
+      font-size: 22px;
       display: inline-block;
     }
   }

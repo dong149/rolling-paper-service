@@ -22,17 +22,20 @@ const Start = () => {
         />
       </Head>
       <img className="question-logo" src="/q.jpeg" alt="질문" />
+      {/* <div className="question">
+        <span className="question-text">1.</span>
+      </div> */}
       <div className="question">
-        <span>
-          주인공의
-          <br />
-          성함 혹은 애칭?
-        </span>
+        <span className="question-text">주인공의</span>
+      </div>
+      <div className="question">
+        <span className="question-text">성함 혹은 애칭?</span>
       </div>
       <div className="name-input-wrap">
         <input
           className="name-input"
           type="text"
+          placeholder="입력해주세요"
           onChange={(e) => setName(e.target.value)}
         />
       </div>
