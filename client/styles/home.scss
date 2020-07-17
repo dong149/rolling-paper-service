@@ -36,18 +36,30 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f64c71;
-    color: white;
+    // background-color: #f64c71;
+    // color: white;
+    color: #f64c71;
+    font-weight: normal;
     margin-top: 30px;
     height: 60px;
     width: 100%;
-    cursor: pointer;
+    // cursor: pointer;
     max-width: 300px;
     font-size: 18px;
     border-radius: 30px;
     &:hover {
       background-color: #f82c83;
     }
+  }
+  .kakao-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 30px;
   }
 
   .question-logo {

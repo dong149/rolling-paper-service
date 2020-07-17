@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { isEmpty } from "../functions";
 import Paper from "../components/Paper";
@@ -7,7 +7,11 @@ import "../styles/papers.scss";
 const Start = () => {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
-
+  // useEffect(() => {
+  //   if (!window.Kakao.isInitialized()) {
+  //     window.Kakao.init("28ff1d35692191420def0e22e9d6941b");
+  //   }
+  // }, []);
   return (
     <div className="layout">
       <Head>
