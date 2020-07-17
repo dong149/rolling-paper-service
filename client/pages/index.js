@@ -27,18 +27,13 @@ const Index = () => {
                     src="/lefthanders.jpeg"
                     alt="왼손잡이들 로고"
                   />
-                  {/* <div className="rolling"></div> */}
+
                   <img className="logo" src="/pen.jpeg" alt="롤링페이퍼 메인" />
                   <img
                     className="logo"
                     src="/rolling.jpeg"
                     alt="롤링페이퍼 로고"
                   />
-                  {/* <h1>롤링페이퍼</h1> */}
-                  {/* <a id="kakao-link-btn">
-          
-          <button>공유</button>
-        </a> */}
 
                   <div className="start-btn">
                     <span>▼</span>
