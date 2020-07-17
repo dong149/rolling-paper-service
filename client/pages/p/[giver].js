@@ -8,6 +8,7 @@ import rollingService from "../../services/rollingService";
 import "../../styles/home.scss";
 import "../../styles/papers.scss";
 import Head from "next/head";
+import ReactFullpage from "@fullpage/react-fullpage";
 const Giver = (props) => {
   const { rollings } = props;
   // console.log(rollings);
@@ -24,10 +25,10 @@ const Giver = (props) => {
         <title>롤링 페이퍼</title>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=0.5 ,user-scalable=no, maximum-scale=1"
+          content="width=device-width, initial-scale=1.0 ,user-scalable=no, maximum-scale=1"
         />
       </Head>
-      <header className="intro">
+      {/* <header className="intro">
         <h1>{name} 님</h1>
         <h2>생일 축하드려요!</h2>
       </header>
@@ -39,7 +40,39 @@ const Giver = (props) => {
             );
           }
         })}
-      </div>
+      </div> */}
+      <ReactFullpage
+        slidesNavigation
+        render={() => {
+          return (
+            <ReactFullpage.Wrapper>
+              <div className="section section-first">
+                <header className="intro">
+                  <h1>{name} 님</h1>
+                  <h2>생일 축하드려요!</h2>
+                </header>
+                {/* <div className="allow">
+                  <span>▼</span>
+                </div> */}
+              </div>
+              {rollings.map((object) => {
+                if (object.name === name) {
+                  return (
+                    <div className="section">
+                      <Paper
+                        key={object._id}
+                        name={name}
+                        content={object.content}
+                        author="류동훈"
+                      />
+                    </div>
+                  );
+                }
+              })}
+            </ReactFullpage.Wrapper>
+          );
+        }}
+      />
     </div>
   );
 };

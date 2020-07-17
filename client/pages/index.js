@@ -39,11 +39,10 @@ const Index = () => {
           
           <button>공유</button>
         </a> */}
-                  <Link href="/start">
-                    <div className="start-btn">
-                      <span>▼</span>
-                    </div>
-                  </Link>
+
+                  <div className="start-btn">
+                    <span>▼</span>
+                  </div>
                 </div>
               </div>
 
