@@ -126,13 +126,18 @@ const Papers = (props) => {
   };
   return (
     <div className="layout">
-      {/* <Head>
+      <Head>
         <title>롤링 페이퍼</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
         />
-      </Head> */}
+        <meta name="description" content="롤링 페이퍼 쉽게 만들기" />
+        <meta
+          name="keywords"
+          content="롤링페이퍼,선물,생일,여자친구,100일,친구"
+        />
+      </Head>
       <ReactFullpage
         render={() => {
           return (
