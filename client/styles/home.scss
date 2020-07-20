@@ -43,7 +43,7 @@ body {
     margin-top: 10px;
     height: 60px;
     width: 100%;
-    // cursor: pointer;
+    cursor: pointer;
     max-width: 300px;
     font-size: 18px;
     border-radius: 30px;
@@ -71,6 +71,14 @@ body {
     margin-bottom: 10px;
     font-weight: lighter;
     text-align: left;
+  }
+  .question-info {
+    width: 300px;
+    font-size: 12px;
+    font-weight: lighter;
+    text-align: left;
+    color: #f64c71;
+    margin-top: 2px;
   }
   .name-input-wrap {
     margin-top: 30px;

@@ -17,7 +17,7 @@ const Index = () => {
         />
       </Head>
       <ReactFullpage
-        render={() => {
+        render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
               <div className="section">
@@ -35,15 +35,15 @@ const Index = () => {
                     alt="롤링페이퍼 로고"
                   />
 
-                  <div className="start-btn">
+                  <div
+                    className="start-btn"
+                    onClick={() => fullpageApi.moveSectionDown()}
+                  >
                     <span>▼</span>
                   </div>
                 </div>
               </div>
-
-              <div className="section">
-                <Start />
-              </div>
+              <Start fullpageApi={fullpageApi} />
             </ReactFullpage.Wrapper>
           );
         }}

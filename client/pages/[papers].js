@@ -13,9 +13,12 @@ const Papers = (props) => {
   const { rollings } = props;
   // console.log(rollings);
   const [content, setContent] = useState("");
+  const [author, setAuthor] = useState("");
+  const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
   const router = useRouter();
   let name = router.query.papers;
+  let pw = router.asPath.split("?")[1];
   let encName = encodeURI(name);
   // console.log(encName);
   // console.log(name);
@@ -38,8 +41,8 @@ const Papers = (props) => {
         imageUrl:
           "https://github.com/dong149/image_resources/blob/master/rollingpaper/rollingpaper_thumbnail.jpeg?raw=true",
         link: {
-          webUrl: `https://rollingpaper.site/${name}`,
-          mobileWebUrl: `https://rollingpaper.site/${name}`,
+          webUrl: `https://rollingpaper.site/${name}?${pw}`,
+          mobileWebUrl: `https://rollingpaper.site/${name}?${pw}`,
         },
       },
       social: {
@@ -51,8 +54,8 @@ const Papers = (props) => {
         {
           title: "쓰러 가기",
           link: {
-            webUrl: `https://rollingpaper.site/${name}`,
-            mobileWebUrl: `https://rollingpaper.site/${name}`,
+            webUrl: `https://rollingpaper.site/${name}?${pw}`,
+            mobileWebUrl: `https://rollingpaper.site/${name}?${pw}`,
           },
         },
       ],
@@ -72,8 +75,8 @@ const Papers = (props) => {
         imageUrl:
           "https://github.com/dong149/image_resources/blob/master/rollingpaper/rollingpaper_thumbnail.jpeg?raw=true",
         link: {
-          webUrl: `https://rollingpaper.site/p/${name}`,
-          mobileWebUrl: `https://rollingpaper.site/p/${name}`,
+          webUrl: `https://rollingpaper.site/p/${name}?${pw}`,
+          mobileWebUrl: `https://rollingpaper.site/p/${name}?${pw}`,
         },
       },
       social: {
@@ -85,8 +88,8 @@ const Papers = (props) => {
         {
           title: "보러 가기",
           link: {
-            webUrl: `https://rollingpaper.site/p/${name}`,
-            mobileWebUrl: `https://rollingpaper.site/p/${name}`,
+            webUrl: `https://rollingpaper.site/p/${name}?${pw}`,
+            mobileWebUrl: `https://rollingpaper.site/p/${name}?${pw}`,
           },
         },
       ],
@@ -100,10 +103,16 @@ const Papers = (props) => {
   }, []);
   const onSubmit = async () => {
     try {
+      if (isEmpty(content) || isEmpty(author)) {
+        setError("※글과 글쓴이를 모두 입력해주세요.");
+        return;
+      }
       await rollingService
         .postRolling({
           name: name,
           content: content,
+          author: author,
+          password: pw,
         })
         .then((res) => {
           alert("성공적으로 등록되었습니다.");
@@ -158,19 +167,28 @@ const Papers = (props) => {
                       type="text"
                       className="author-input"
                       placeholder="홍길동"
+                      onChange={(e) => setAuthor(e.target.value)}
                     />
                   </div>
                   <span className="author-text">올림</span>
                 </div>
                 {!isEmpty(content) ? (
-                  <div className="preview-btn" onClick={() => onSubmit()}>
-                    <span>제출하기</span>
-                  </div>
+                  !isEmpty(author) ? (
+                    <div className="preview-btn" onClick={() => onSubmit()}>
+                      <span>제출하기</span>
+                    </div>
+                  ) : (
+                    <div
+                      style={{ backgroundColor: "#222222", color: "#fffeef" }}
+                      className="preview-btn"
+                    >
+                      <span>※작성자도 입력해주세요!</span>
+                    </div>
+                  )
                 ) : (
                   <div
                     style={{ backgroundColor: "#222222", color: "#fffeef" }}
                     className="preview-btn"
-                    onClick={() => onSubmit()}
                   >
                     <span>제출하기</span>
                   </div>
@@ -188,7 +206,7 @@ const Papers = (props) => {
         <span className="back-btn">돌아가기</span>
       </Link> */}
 
-                <Link href={`/p/${name}`}>
+                <Link href={`/p/${name}?${pw}`}>
                   <div className="preview-btn">
                     <span>테스트하기</span>
                   </div>

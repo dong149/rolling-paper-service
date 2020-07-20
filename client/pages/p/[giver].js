@@ -16,6 +16,7 @@ const Giver = (props) => {
   const [copied, setCopied] = useState(false);
   const router = useRouter();
   let name = router.query.giver;
+  let pw = router.asPath.split("?")[1];
   let encName = encodeURI(name);
   // console.log(name);
 
@@ -56,14 +57,14 @@ const Giver = (props) => {
                 </div> */}
               </div>
               {rollings.map((object) => {
-                if (object.name === name) {
+                if (object.name === name && object.password === pw) {
                   return (
                     <div className="section">
                       <Paper
                         key={object._id}
                         name={name}
                         content={object.content}
-                        author="류동훈"
+                        author={object.author}
                       />
                     </div>
                   );
