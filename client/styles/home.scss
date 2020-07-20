@@ -140,6 +140,7 @@ select::-ms-expand {
     justify-content: center;
     align-items: center;
     background-color: #f64c71;
+    transition: background-color 1s;
     color: white;
     margin-top: 30px;
     height: 60px;
@@ -156,6 +157,7 @@ select::-ms-expand {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 1s;
     background-color: grey;
     color: white;
     margin-top: 30px;
