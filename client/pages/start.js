@@ -17,20 +17,56 @@ const Start = (props) => {
   // }, []);
   return (
     <>
+      <Head>
+        <title>롤링 페이퍼</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
+        />
+        <meta name="description" content="롤링 페이퍼 쉽게 만들기" />
+        <meta
+          name="keywords"
+          content="롤링페이퍼,선물,생일,여자친구,100일,친구"
+        />
+      </Head>
+      {/* 이벤트 종류 선택하기 */}
+      {/* <div className="section">
+        <div className="layout">
+          <img className="question-logo" src="/q.jpeg" alt="질문" />
+          <div className="question">
+            <span className="question-text">어떤</span>
+          </div>
+          <div className="question">
+            <span className="question-text">이벤트를 준비하세요?</span>
+          </div>
+          <div className="question-info">
+            <span>※필수입니다.</span>
+          </div>
+          <div className="event-select">
+            <select name="job">
+              <option value="">선택해주세요</option>
+              <option value="생일">생일</option>
+              <option value="기념일">기념일</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+          {!isEmpty(name) ? (
+            <Link href={`/[papers]`} as={`/${name}?${password1}`}>
+              <div className="create-btn" name={name}>
+                <span>다음</span>
+              </div>
+            </Link>
+          ) : (
+            // <button onClick={moveRoute}>시작하기</button>
+
+            <div className="inactive-create-btn" name={name}>
+              <span>작성해주세요</span>
+            </div>
+          )}
+        </div>
+      </div> */}
       <div className="section">
         <div className="layout">
-          <Head>
-            <title>롤링 페이퍼</title>
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
-            />
-            <meta name="description" content="롤링 페이퍼 쉽게 만들기" />
-            <meta
-              name="keywords"
-              content="롤링페이퍼,선물,생일,여자친구,100일,친구"
-            />
-          </Head>
           <img className="question-logo" src="/q.jpeg" alt="질문" />
           <div className="question">
             <span className="question-text">주인공의</span>

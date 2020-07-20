@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Paper from "../components/Paper";
 import "../styles/home.scss";
@@ -7,6 +7,17 @@ import Head from "next/head";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Start from "./start";
 const Index = () => {
+  const [img1Load, setImg1Load] = useState(false);
+  const [img2Load, setImg2Load] = useState(false);
+  const [img3Load, setImg3Load] = useState(false);
+  const image1 = useRef();
+  const image2 = useRef();
+  const image3 = useRef();
+  useEffect(() => {
+    if (image1.current.complete) setImg1Load(true);
+    if (image2.current.complete) setImg2Load(true);
+    if (image3.current.complete) setImg3Load(true);
+  }, []);
   return (
     <div>
       <Head>
@@ -28,16 +39,33 @@ const Index = () => {
               <div className="section">
                 <div className="layout">
                   <img
-                    className="lefthanders"
+                    className={img1Load ? `lefthanders` : `lefthanders-unload`}
+                    ref={image1}
                     src="/lefthanders.jpeg"
                     alt="왼손잡이들 로고"
+                    onLoad={() => {
+                      setImg1Load(true);
+                    }}
                   />
 
-                  <img className="logo" src="/pen.jpeg" alt="롤링페이퍼 메인" />
                   <img
-                    className="logo"
+                    className={img2Load ? `logo` : `logo-unload`}
+                    src="/pen.jpeg"
+                    ref={image2}
+                    alt="롤링페이퍼 메인"
+                    onLoad={() => {
+                      setImg2Load(true);
+                    }}
+                  />
+                  <img
+                    className={img3Load ? `logo` : `logo-unload`}
+                    // className="logo"
+                    ref={image3}
                     src="/rolling.jpeg"
                     alt="롤링페이퍼 로고"
+                    onLoad={() => {
+                      setImg3Load(true);
+                    }}
                   />
 
                   <div
