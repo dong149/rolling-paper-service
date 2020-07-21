@@ -11,16 +11,36 @@ const rollingService = {
     let res = await baseAPI.get(`/api/rolling`);
     return res.data || [];
   },
-  getRollingByName: async (name) => {
-    let res = await baseAPI.get(`/api/rolling/`, {
-      params: { name: name },
-    });
+  getRollingContent: async (rolling_id) => {
+    let res = await baseAPI.get(`/api/rollingcontent?rolling_id=${rolling_id}`);
+    return res.data || [];
+  },
+
+  getRollingByName: async (name, password) => {
+    // const name = "ddd";
+    // const password = "dd";
+    let res = await baseAPI.get(
+      `/api/rolling?name=${name}&password=${password}`
+    );
     return res.data || [];
   },
   postRolling: async (object) => {
     console.log("ddd");
     await baseAPI
       .post(`/api/rolling`, object)
+      .then((res) => {
+        console.log(res.data);
+        return 1;
+      })
+      .catch((err) => {
+        console.log(err);
+        return 0;
+      });
+  },
+  postRollingContent: async (object) => {
+    console.log("ddd");
+    await baseAPI
+      .post(`/api/rollingcontent`, object)
       .then((res) => {
         console.log(res.data);
         return 1;

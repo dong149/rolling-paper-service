@@ -10,24 +10,21 @@ import "../styles/papers.scss";
 import Head from "next/head";
 import ReactFullpage from "@fullpage/react-fullpage";
 const Papers = (props) => {
-  const { rollings } = props;
-  // console.log(rollings);
+  const { rolling } = props;
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
   const router = useRouter();
-  let name = router.query.papers;
-  let pw = router.asPath.split("?")[1];
+  const [test, setTest] = useState();
+  const id = rolling._id;
+  const name = rolling.name;
+  const password = rolling.password;
   let encName = encodeURI(name);
   // console.log(encName);
   // console.log(name);
 
   useEffect(() => {
-    // console.log(window.Kakao);
-    // if (isEmpty(window.Kakao.Link)) {
-    //   window.Kakao.init("28ff1d35692191420def0e22e9d6941b");
-    // }
     if (!window.Kakao.isInitialized()) {
       window.Kakao.init("28ff1d35692191420def0e22e9d6941b");
     }
@@ -41,8 +38,8 @@ const Papers = (props) => {
         imageUrl:
           "https://github.com/dong149/image_resources/blob/master/rollingpaper/rollingpaper_thumbnail.jpeg?raw=true",
         link: {
-          webUrl: `https://rollingpaper.site/${name}?${pw}`,
-          mobileWebUrl: `https://rollingpaper.site/${name}?${pw}`,
+          webUrl: `https://rollingpaper.site/${name}?${password}`,
+          mobileWebUrl: `https://rollingpaper.site/${name}?${password}`,
         },
       },
       social: {
@@ -54,8 +51,8 @@ const Papers = (props) => {
         {
           title: "쓰러 가기",
           link: {
-            webUrl: `https://rollingpaper.site/${name}?${pw}`,
-            mobileWebUrl: `https://rollingpaper.site/${name}?${pw}`,
+            webUrl: `https://rollingpaper.site/${name}?${password}`,
+            mobileWebUrl: `https://rollingpaper.site/${name}?${password}`,
           },
         },
       ],
@@ -75,8 +72,8 @@ const Papers = (props) => {
         imageUrl:
           "https://github.com/dong149/image_resources/blob/master/rollingpaper/rollingpaper_thumbnail.jpeg?raw=true",
         link: {
-          webUrl: `https://rollingpaper.site/p/${name}?${pw}`,
-          mobileWebUrl: `https://rollingpaper.site/p/${name}?${pw}`,
+          webUrl: `https://rollingpaper.site/p/${name}?${password}`,
+          mobileWebUrl: `https://rollingpaper.site/p/${name}?${password}`,
         },
       },
       social: {
@@ -88,8 +85,8 @@ const Papers = (props) => {
         {
           title: "보러 가기",
           link: {
-            webUrl: `https://rollingpaper.site/p/${name}?${pw}`,
-            mobileWebUrl: `https://rollingpaper.site/p/${name}?${pw}`,
+            webUrl: `https://rollingpaper.site/p/${name}?${password}`,
+            mobileWebUrl: `https://rollingpaper.site/p/${name}?${password}`,
           },
         },
       ],
@@ -108,16 +105,18 @@ const Papers = (props) => {
         return;
       }
       await rollingService
-        .postRolling({
+        .postRollingContent({
           name: name,
           content: content,
           author: author,
-          password: pw,
+          password: password,
+          rolling_id: id,
         })
         .then((res) => {
           alert("성공적으로 등록되었습니다.");
           setContent("");
-          window.location.reload();
+          setAuthor("");
+          // window.location.reload();
         });
     } catch (err) {
       console.log(err);
@@ -161,6 +160,7 @@ const Papers = (props) => {
                     <textarea
                       className="content-input"
                       rows="10"
+                      value={content}
                       placeholder={`여기에 ${name}님에게 남기고 싶으신 말을 편하게 작성해주시면 됩니다.`}
                       onChange={(e) => setContent(e.target.value)}
                     />
@@ -170,6 +170,7 @@ const Papers = (props) => {
                   <div className="author-input-wrap">
                     <input
                       type="text"
+                      value={author}
                       className="author-input"
                       placeholder="홍길동"
                       onChange={(e) => setAuthor(e.target.value)}
@@ -211,7 +212,7 @@ const Papers = (props) => {
         <span className="back-btn">돌아가기</span>
       </Link> */}
 
-                <Link href={`/p/${name}?${pw}`}>
+                <Link href={`/p/${name}?${password}?${id}`}>
                   <div className="preview-btn">
                     <span>테스트하기</span>
                   </div>
@@ -245,10 +246,13 @@ const Papers = (props) => {
   );
 };
 
-Papers.getInitialProps = async () => {
-  const res = await rollingService.getRolling();
+Papers.getInitialProps = async (context) => {
+  const name = context.query.papers;
+  const password = context.asPath.split("?")[1];
+  // const res = await rollingService.getRolling();
+  const temp = await rollingService.getRollingByName(name, password);
   return {
-    rollings: res,
+    rolling: temp[0],
   };
 };
 

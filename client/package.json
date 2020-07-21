@@ -12,6 +12,7 @@
     "react": "16.13.1",
     "react-copy-to-clipboard": "5.0.2",
     "react-dom": "16.13.1",
+    "react-input-autosize": "2.2.2",
     "wired-elements": "2.1.2"
   },
   "scripts": {

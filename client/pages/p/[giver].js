@@ -10,13 +10,12 @@ import "../../styles/papers.scss";
 import Head from "next/head";
 import ReactFullpage from "@fullpage/react-fullpage";
 const Giver = (props) => {
-  const { rollings } = props;
-  // console.log(rollings);
+  const { rollings, name, password, id } = props;
+  console.log(rollings);
   const [content, setContent] = useState("");
   const [copied, setCopied] = useState(false);
   const router = useRouter();
-  let name = router.query.giver;
-  let pw = router.asPath.split("?")[1];
+
   let encName = encodeURI(name);
   // console.log(name);
 
@@ -62,18 +61,16 @@ const Giver = (props) => {
                 </div> */}
               </div>
               {rollings.map((object) => {
-                if (object.name === name && object.password === pw) {
-                  return (
-                    <div className="section">
-                      <Paper
-                        key={object._id}
-                        name={name}
-                        content={object.content}
-                        author={object.author}
-                      />
-                    </div>
-                  );
-                }
+                return (
+                  <div className="section">
+                    <Paper
+                      key={object._id}
+                      name={name}
+                      content={object.content}
+                      author={object.author}
+                    />
+                  </div>
+                );
               })}
             </ReactFullpage.Wrapper>
           );
@@ -83,10 +80,17 @@ const Giver = (props) => {
   );
 };
 
-Giver.getInitialProps = async () => {
-  const res = await rollingService.getRolling();
+Giver.getInitialProps = async (context) => {
+  const name = context.query.giver;
+  const password = context.asPath.split("?")[1];
+  const id = context.asPath.split("?")[2];
+  const res = await rollingService.getRollingContent(id);
+  console.log(name, password, id);
   return {
     rollings: res,
+    name: name,
+    password: password,
+    id: id,
   };
 };
 

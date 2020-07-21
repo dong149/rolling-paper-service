@@ -6,6 +6,7 @@ import "../styles/papers.scss";
 import Head from "next/head";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Start from "./start";
+
 const Index = () => {
   const [img1Load, setImg1Load] = useState(false);
   const [img2Load, setImg2Load] = useState(false);
@@ -18,10 +19,14 @@ const Index = () => {
     if (image2.current.complete) setImg2Load(true);
     if (image3.current.complete) setImg3Load(true);
   }, []);
+  const onLeave = (origin, destination, direction) => {
+    console.log("onLeave", { origin, destination, direction });
+  };
   return (
     <div>
       <Head>
         <title>롤링 페이퍼</title>
+
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
@@ -33,6 +38,11 @@ const Index = () => {
         />
       </Head>
       <ReactFullpage
+        // anchors={["one", "two", "three"]}
+        // onLeave={() => onLeave()}
+        easing="easeInOutCubic"
+        css3
+        controlArrows
         render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
@@ -70,8 +80,25 @@ const Index = () => {
 
                   <div
                     className="start-btn"
-                    onClick={() => fullpageApi.moveSectionDown()}
+                    // onClick={() => fullpageApi.moveSectionDown()}
                   >
+                    <span>▼</span>
+                  </div>
+                </div>
+              </div>
+              <div className="section">
+                <div className="layout">
+                  <div className="question-text">
+                    지금까지
+                    <br />
+                    3502명이 작성하고
+                    <br />
+                    342명이 축하를
+                    <br />
+                    받았어요!
+                  </div>
+
+                  <div className="start-btn">
                     <span>▼</span>
                   </div>
                 </div>
