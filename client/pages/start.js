@@ -10,6 +10,10 @@ const Start = (props) => {
   const { fullpageApi } = props;
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [color, setColor] = useState("#f64c71");
+  const [content, setContent] = useState("생일 축하드립니다");
+  const [next, setNext] = useState(false);
+  const [next2, setNext2] = useState(false);
   // const [password1, setPassword1] = useState("");
   // const [password2, setPassword2] = useState("");
   const [error, setError] = useState("");
@@ -159,10 +163,12 @@ const Start = (props) => {
             <div
               className="create-btn"
               onClick={() => {
-                onSubmit();
+                // onSubmit();
+                setNext(true);
+                fullpageApi.moveSectionDown();
               }}
             >
-              <span>롤링페이퍼 생성하기</span>
+              <span>다음</span>
             </div>
           ) : (
             // <button onClick={moveRoute}>시작하기</button>
@@ -175,11 +181,207 @@ const Start = (props) => {
       </div>
       <div className="section">
         <div className="layout">
-          <div className="inactive-create-btn" name={name}>
-            <span>모두 작성해주세요</span>
+          <div className="question-text">
+            어떤 색으로
+            <br />
+            만들까요?
           </div>
+          <div className="color">
+            <Color
+              boxColor="#f64c71"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#3500d3"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#afd"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#e3afbc"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#d79922"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#c5cbe3"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#123c69"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#e98074"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#5680e9"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#5ab9ea"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#8860d0"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#2e9cca"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#3aafa9"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#f8e9a1"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#17e9e0"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+            <Color
+              boxColor="#faed26"
+              chooseColor={(temp) => {
+                setColor(temp);
+              }}
+              currentColor={color}
+            />
+          </div>
+          {next ? (
+            <div
+              className="create-btn"
+              name={name}
+              style={{ backgroundColor: `${color}` }}
+              onClick={() => fullpageApi.moveSectionDown()}
+            >
+              <span>다음</span>
+            </div>
+          ) : (
+            <div className="inactive-create-btn" name={name}>
+              <span>위 내용을 작성해주세요!</span>
+            </div>
+          )}
         </div>
       </div>
+      <div className="section">
+        <div className="layout">
+          <div className="question-text">
+            친구에게 전할 한 마디는
+            <br />
+            "
+            <AutosizeInput
+              inputStyle={{
+                border: 0,
+                fontSize: 35,
+                outline: "none",
+                display: "inline-block",
+
+                fontWeight: "lighter",
+              }}
+              style={{
+                borderBottom: "1px solid #333",
+                display: "inline-block",
+              }}
+              maxLength="10"
+              value={content}
+              placeholder="간단하게 한 마디!"
+              onChange={(e) => {
+                setContent(e.target.value);
+              }}
+            />
+            "
+            <br />
+            입니다!
+          </div>
+          {!isEmpty(content) ? (
+            <div
+              className="create-btn"
+              onClick={() => {
+                // onSubmit();
+                // setNext(true);
+                fullpageApi.moveSectionDown();
+              }}
+            >
+              <span>다음</span>
+            </div>
+          ) : (
+            // <button onClick={moveRoute}>시작하기</button>
+
+            <div className="inactive-create-btn" name={name}>
+              <span>작성해주세요</span>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="section">
+        <div className="layout">
+          {next2 ? (
+            <Link href={`/[papers]`} as={`/${name}?${password}`}>
+              <div className="create-btn" name={name}>
+                <span>링크 생성하기</span>
+              </div>
+            </Link>
+          ) : (
+            <div className="inactive-create-btn" name={name}>
+              <span>위 내용을 작성해주세요!</span>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* <div className="section">
         <div className="layout">
           <img className="question-logo" src="/q.jpeg" alt="질문" />
@@ -281,6 +483,34 @@ const Start = (props) => {
           )}
         </div>
       </div> */}
+    </>
+  );
+};
+export const Color = (props) => {
+  const { boxColor, chooseColor, currentColor } = props;
+  return (
+    <>
+      {boxColor === currentColor ? (
+        <div
+          onClick={() => {
+            chooseColor(boxColor);
+          }}
+          className="color-box"
+          style={{
+            backgroundColor: `${boxColor}`,
+            boxShadow: `0 30px 60px 12px rgba(0, 0, 33, 0.2),
+            0 4px 24px 0 rgba(0, 0, 33, 0.2), 0 0 1px 0 rgba(0, 0, 33, 0.2)`,
+          }}
+        ></div>
+      ) : (
+        <div
+          onClick={() => {
+            chooseColor(boxColor);
+          }}
+          className="color-box"
+          style={{ backgroundColor: `${boxColor}` }}
+        ></div>
+      )}
     </>
   );
 };

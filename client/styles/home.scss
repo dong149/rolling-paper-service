@@ -134,6 +134,20 @@ select::-ms-expand {
     color: #f64c71;
     margin-top: 2px;
   }
+  .color {
+    display: flex;
+    width: 320px;
+
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    .color-box {
+      margin: 10px;
+      background-color: #f64c71;
+      width: 60px;
+      height: 60px;
+    }
+  }
   .name-input-wrap {
     margin-top: 30px;
     width: 300px;
