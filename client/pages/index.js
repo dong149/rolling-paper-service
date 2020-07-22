@@ -25,8 +25,7 @@ const Index = () => {
   return (
     <div>
       <Head>
-        <title>롤링 페이퍼</title>
-
+        ㅊ
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"

@@ -55,7 +55,7 @@ const Start = (props) => {
   return (
     <>
       <Head>
-        <title>롤링 페이퍼</title>
+        <title>롤링 페이퍼 :: 특별한 온라인 선물</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
