@@ -142,6 +142,16 @@ const Papers = (props) => {
           return (
             <ReactFullpage.Wrapper>
               <div className="section">
+                <div className="layout">
+                  <div className="question-text">
+                    {name}님
+                    <br />
+                    롤링페이퍼
+                  </div>
+                </div>
+                <div className="question-text">5명 작성</div>
+              </div>
+              {/* <div className="section">
                 <div className="paper-head">
                   <span>{name}님</span>
                 </div>
@@ -202,7 +212,7 @@ const Papers = (props) => {
                 <div className="next-btn">
                   <span>▼</span>
                 </div>
-              </div>
+              </div> */}
               <div className="section">
                 <a id="kakao-link-btn" className="share-btn">
                   <span>공유하기</span>

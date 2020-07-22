@@ -19,6 +19,7 @@ const rollingService = {
   getRollingByName: async (name, password) => {
     // const name = "ddd";
     // const password = "dd";
+    console.log(name, password);
     let res = await baseAPI.get(
       `/api/rolling?name=${name}&password=${password}`
     );
