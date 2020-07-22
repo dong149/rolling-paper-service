@@ -16,7 +16,7 @@ const Start = (props) => {
   const [next2, setNext2] = useState(false);
   // const [password1, setPassword1] = useState("");
   // const [password2, setPassword2] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(0);
   // useEffect(() => {
   //   if (!window.Kakao.isInitialized()) {
   //     window.Kakao.init("28ff1d35692191420def0e22e9d6941b");
@@ -35,7 +35,8 @@ const Start = (props) => {
         .then(async (res) => {
           console.log(res);
           if (!isEmpty(res)) {
-            alert("이미 생성된 롤링페이퍼입니다.");
+            setError(1);
+            // alert("이미 생성된 롤링페이퍼입니다.");
             return;
           }
           await rollingService
@@ -46,7 +47,7 @@ const Start = (props) => {
               password: password,
             })
             .then((res) => {
-              alert("성공적으로 등록되었습니다.");
+              setError(2);
               setContent("");
               // window.location.reload();
             });
@@ -163,12 +164,16 @@ const Start = (props) => {
             <div
               className="create-btn"
               onClick={() => {
-                // onSubmit();
+                onSubmit();
+                // setNext(true);
+                // fullpageApi.reBuild();
+                // fullpageApi.setAllowScrolling(true, "right");
                 setNext(true);
+                // fullpageApi.setResponsive(true);
                 fullpageApi.moveSectionDown();
               }}
             >
-              <span>다음</span>
+              <span>생성하기 혹은 조회하기</span>
             </div>
           ) : (
             // <button onClick={moveRoute}>시작하기</button>
@@ -179,6 +184,25 @@ const Start = (props) => {
           )}
         </div>
       </div>
+      <div className="section">
+        <div className="layout">
+          {error === 1 && <div className="question-text">이미 생성된 롤페</div>}
+          {error === 2 && <div className="question-text">등록되었습니다.</div>}
+
+          {next ? (
+            <Link href={`/[papers]`} as={`/${name}?${password}`}>
+              <div className="create-btn" name={name}>
+                <span>이동하기</span>
+              </div>
+            </Link>
+          ) : (
+            <div className="inactive-create-btn" name={name}>
+              <span>위 내용을 모두 작성해주세요.</span>
+            </div>
+          )}
+        </div>
+      </div>
+      {/*      
       <div className="section">
         <div className="layout">
           <div className="question-text">
@@ -316,6 +340,7 @@ const Start = (props) => {
           )}
         </div>
       </div>
+
       <div className="section">
         <div className="layout">
           <div className="question-text">
@@ -382,7 +407,7 @@ const Start = (props) => {
             </div>
           )}
         </div>
-      </div>
+      </div> */}
 
       {/* <div className="section">
         <div className="layout">

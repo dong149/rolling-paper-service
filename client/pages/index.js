@@ -19,13 +19,13 @@ const Index = () => {
     if (image2.current.complete) setImg2Load(true);
     if (image3.current.complete) setImg3Load(true);
   }, []);
-  const onLeave = (origin, destination, direction) => {
-    console.log("onLeave", { origin, destination, direction });
-  };
+  // const afterLoad = (origin, destination, direction) => {
+  //   console.log("afterLoad", { origin, destination, direction });
+  // };
   return (
     <div>
       <Head>
-        ㅊ
+        <title>롤링 페이퍼 :: 특별한 온라인 선물</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1 ,user-scalable=no, maximum-scale=1"
@@ -37,12 +37,15 @@ const Index = () => {
         />
       </Head>
       <ReactFullpage
-        // anchors={["one", "two", "three"]}
-        // onLeave={() => onLeave()}
-        easing="easeInOutCubic"
-        css3
-        controlArrows
-        render={({ fullpageApi }) => {
+        // anchors={["main", "intro", "input1", "input2", "input3", "finish"]}
+        // normalScrollElements="#input1 .layout"
+        v2compatible={true}
+        // interlockedSlides={["intro", "input1"]}
+        // scrollBar={true}
+        // navigation={true}
+        render={({ state, fullpageApi }) => {
+          console.log(fullpageApi);
+
           return (
             <ReactFullpage.Wrapper>
               <div className="section">
