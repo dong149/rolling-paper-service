@@ -118,8 +118,8 @@ const Start = (props) => {
                 fontSize: 35,
                 outline: "none",
                 display: "inline-block",
-
                 fontWeight: "lighter",
+                padding: "0",
               }}
               style={{
                 borderBottom: "1px solid #333",
@@ -142,7 +142,7 @@ const Start = (props) => {
                 fontSize: "35px",
                 outline: "none",
                 display: "inline-block",
-
+                padding: "0",
                 fontWeight: "lighter",
               }}
               style={{
@@ -319,7 +319,9 @@ const Start = (props) => {
       <div className="section">
         <div className="layout">
           <div className="question-text">
-            친구에게 전할 한 마디는
+            주인공에게
+            <br />
+            전할 한 마디는
             <br />
             "
             <AutosizeInput
@@ -328,7 +330,7 @@ const Start = (props) => {
                 fontSize: 35,
                 outline: "none",
                 display: "inline-block",
-
+                padding: "0",
                 fontWeight: "lighter",
               }}
               style={{
@@ -344,7 +346,7 @@ const Start = (props) => {
             />
             "
             <br />
-            입니다!
+            입니다.
           </div>
           {!isEmpty(content) ? (
             <div
