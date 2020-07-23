@@ -88,15 +88,15 @@ const Giver = (props) => {
 };
 
 Giver.getInitialProps = async (context) => {
-  const name = context.query.giver;
-  const password = context.asPath.split("?")[1];
-  const id = context.asPath.split("?")[2];
-  const temp =
-    "https://rollingpaper.site/p/%EB%A5%98%EB%8F%99%ED%9B%88?1491?5f194fa448dd685f233c4d28";
-  console.log("현상황:", temp.split("?")[2]);
-  // console.log(context.headers);
+  // const name = context.query.giver;
+  // const password = context.asPath.split("?")[1];
+  // const id = context.asPath.split("%3f")[2];
+  const name = context.query.name;
+  const password = context.query.pw;
+  const id = context.query.id;
+
   const res = await rollingService.getRollingContent(id);
-  console.log("fffffffffffffffffffff");
+
   return {
     rollings: res,
     name: name,
