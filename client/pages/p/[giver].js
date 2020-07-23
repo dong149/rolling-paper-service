@@ -12,6 +12,9 @@ import ReactFullpage from "@fullpage/react-fullpage";
 const Giver = (props) => {
   const { rollings, name, password, id } = props;
   console.log(rollings);
+  console.log("name:", name);
+  console.log("password", password);
+  console.log("id", id);
   const [content, setContent] = useState("");
   const [copied, setCopied] = useState(false);
   const router = useRouter();
@@ -87,6 +90,9 @@ Giver.getInitialProps = async (context) => {
   const name = context.query.giver;
   const password = context.asPath.split("?")[1];
   const id = context.asPath.split("?")[2];
+  const temp =
+    "https://rollingpaper.site/p/%EB%A5%98%EB%8F%99%ED%9B%88?1491?5f194fa448dd685f233c4d28";
+  console.log("현상황:", temp.split("?")[2]);
   console.log(context.asPath);
   const res = await rollingService.getRollingContent(id);
   console.log(name, password, id);
