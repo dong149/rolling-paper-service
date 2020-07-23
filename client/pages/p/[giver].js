@@ -12,7 +12,7 @@ import ReactFullpage from "@fullpage/react-fullpage";
 const Giver = (props) => {
   const { rollings, name, password, id } = props;
   // console.log(rollings);
-  // console.log("context", context);
+
   console.log("name:", name);
   console.log("password", password);
   console.log("id", id);
@@ -94,14 +94,15 @@ Giver.getInitialProps = async (context) => {
   const temp =
     "https://rollingpaper.site/p/%EB%A5%98%EB%8F%99%ED%9B%88?1491?5f194fa448dd685f233c4d28";
   console.log("현상황:", temp.split("?")[2]);
-  console.log(context.asPath);
+  // console.log(context.headers);
   const res = await rollingService.getRollingContent(id);
-  console.log(name, password, id);
+  console.log("fffffffffffffffffffff");
   return {
     rollings: res,
     name: name,
     password: password,
     id: id,
+
     // context: context,
   };
 };

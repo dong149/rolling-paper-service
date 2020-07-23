@@ -199,8 +199,8 @@ const Papers = (props) => {
                     className="create-btn"
                   >
                     <span>작성페이지 링크 복사</span>
-                  </CopyToClipboard>{" "}
-                  <Link href={`/p/${name}?${password}?${id}`}>
+                  </CopyToClipboard>
+                  <Link href={`/p/[giver]`} as={`/p/${name}?${password}?${id}`}>
                     <div className="create-btn" name={name}>
                       <span>롤링페이지 현황 보기</span>
                     </div>
