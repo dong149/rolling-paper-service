@@ -138,6 +138,7 @@ const Start = (props) => {
             우리 롤페 암호는
             <br />
             <AutosizeInput
+              type="password"
               inputStyle={{
                 border: 0,
                 fontSize: "35px",

@@ -15,15 +15,36 @@ const Papers = (props) => {
   const [author, setAuthor] = useState("");
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+  const [contents, setContents] = useState([]);
+  const [count, setCount] = useState(0);
+  const [isSubmit, setIsSubmit] = useState(false);
   const router = useRouter();
   const [test, setTest] = useState();
+  // console.log(rolling);
   const id = rolling._id;
   const name = rolling.name;
   const password = rolling.password;
+
   let encName = encodeURI(name);
   // console.log(encName);
   // console.log(name);
-
+  useEffect(() => {
+    const getContents = async () => {
+      try {
+        console.log(id);
+        await rollingService.getRollingContent(id).then((res) => {
+          console.log(res);
+          setContents(res);
+          if (!isEmpty(res)) {
+            setCount(res.length);
+          }
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getContents();
+  }, [isSubmit]);
   useEffect(() => {
     if (!window.Kakao.isInitialized()) {
       window.Kakao.init("28ff1d35692191420def0e22e9d6941b");
@@ -111,11 +132,14 @@ const Papers = (props) => {
           author: author,
           password: password,
           rolling_id: id,
+          color: "#f64c71",
         })
         .then((res) => {
           alert("성공적으로 등록되었습니다.");
           setContent("");
           setAuthor("");
+          setIsSubmit(true);
+          setIsSubmit(false);
           // window.location.reload();
         });
     } catch (err) {
@@ -148,9 +172,85 @@ const Papers = (props) => {
                     <br />
                     롤링페이퍼
                   </div>
+                  <br />
+                  <div className="question-text">현재까지 {count}명 작성</div>
+                  <div className="create-btn" name={name}>
+                    <span>작성하기</span>
+                  </div>
+                  <a id="kakao-link-btn" className="share-btn">
+                    <div name={name}>
+                      <span>카카오톡으로 작성페이지 공유</span>
+                    </div>
+                  </a>
+                  <CopyToClipboard
+                    text={`https://rollingpaper.site/${encName}/?${encodeURI(
+                      password
+                    )}`}
+                    onCopy={() => setCopied(true)}
+                    className="create-btn"
+                  >
+                    <span>작성페이지 링크 복사</span>
+                  </CopyToClipboard>{" "}
+                  <Link href={`/p/${name}?${password}?${id}`}>
+                    <div className="create-btn" name={name}>
+                      <span>롤링페이지 현황 보기</span>
+                    </div>
+                  </Link>
+                  <a id="kakao-link-btn-giver" className="present-btn">
+                    <div>
+                      <span>주인공에게 보내기</span>
+                    </div>
+                  </a>
                 </div>
-                <div className="question-text">5명 작성</div>
               </div>
+              <div className="section">
+                <div className="content">
+                  <span className="content-header">to {name}</span>
+                  <div className="content-input-wrap">
+                    <textarea
+                      className="content-input"
+                      rows="10"
+                      value={content}
+                      placeholder={`여기에 ${name}님에게 남기고 싶으신 말을 편하게 작성해주시면 됩니다.`}
+                      onChange={(e) => setContent(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="author">
+                  <div className="author-input-wrap">
+                    <input
+                      type="text"
+                      value={author}
+                      className="author-input"
+                      placeholder="홍길동"
+                      onChange={(e) => setAuthor(e.target.value)}
+                    />
+                  </div>
+                  <span className="author-text">올림</span>
+                </div>
+                {!isEmpty(content) ? (
+                  !isEmpty(author) ? (
+                    <div className="preview-btn" onClick={() => onSubmit()}>
+                      <span>제출하기</span>
+                    </div>
+                  ) : (
+                    <div
+                      style={{ backgroundColor: "#222222", color: "#fffeef" }}
+                      className="preview-btn"
+                    >
+                      <span>※작성자도 입력해주세요!</span>
+                    </div>
+                  )
+                ) : (
+                  <div
+                    style={{ backgroundColor: "#222222", color: "#fffeef" }}
+                    className="preview-btn"
+                  >
+                    <span>제출하기</span>
+                  </div>
+                )}
+              </div>
+
               {/* <div className="section">
                 <div className="paper-head">
                   <span>{name}님</span>
@@ -259,10 +359,11 @@ const Papers = (props) => {
 Papers.getInitialProps = async (context) => {
   const name = context.query.papers;
   const password = context.asPath.split("?")[1];
-  // const res = await rollingService.getRolling();
-  const temp = await rollingService.getRollingByName(name, password);
+  console.log(name, password);
+  const res = await rollingService.getRollingByName(name, password);
+  console.log(res);
   return {
-    rolling: temp[0],
+    rolling: res[0],
   };
 };
 

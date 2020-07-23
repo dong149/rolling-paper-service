@@ -13,6 +13,7 @@ const rollingService = {
   },
   getRollingContent: async (rolling_id) => {
     let res = await baseAPI.get(`/api/rollingcontent?rolling_id=${rolling_id}`);
+    console.log(res);
     return res.data || [];
   },
 
@@ -21,7 +22,7 @@ const rollingService = {
     // const password = "dd";
     console.log(name, password);
     let res = await baseAPI.get(
-      `/api/rolling?name=${name}&password=${password}`
+      `/api/rolling?name=${encodeURI(name)}&password=${encodeURI(password)}`
     );
     return res.data || [];
   },
