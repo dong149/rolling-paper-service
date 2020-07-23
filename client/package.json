@@ -8,6 +8,7 @@
     "@zeit/next-sass": "1.0.1",
     "axios": "0.19.2",
     "next": "9.4.4",
+    "nextjs-fonts": "0.22.0",
     "node-sass": "4.14.1",
     "react": "16.13.1",
     "react-copy-to-clipboard": "5.0.2",

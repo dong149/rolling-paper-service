@@ -1,5 +1,6 @@
 @import "./font.scss";
 @import "./mixin.scss";
+
 input::-ms-clear {
   display: none;
 }
@@ -8,7 +9,7 @@ h1 {
   font-weight: lighter;
 }
 body {
-  font-family: $nanum-square;
+  font-family: $nanum-square-round;
 }
 select {
   width: 260px;
@@ -345,4 +346,14 @@ select::-ms-expand {
       background-color: #f82c83;
     }
   }
+}
+
+.fp-slidesNav ul li a span {
+  background: red;
+}
+.fp-controlArrow.fp-prev {
+  border-color: transparent rgba(0, 0, 0, 0.1) transparent transparent !important;
+}
+.fp-controlArrow.fp-next {
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.1) !important;
 }

@@ -3,8 +3,16 @@ import Document, { Head, Main, NextScript } from "next/document";
 export default class RootDocument extends Document {
   render() {
     return (
-      <html>
+      <html lang="ko">
         <Head>
+          <Head>
+            {/* <link
+            rel="preload"
+            href="/fonts/NanumPenScript-Regular.ttf"
+            as="font"
+            crossOrigin=""
+          /> */}
+          </Head>
           <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=UA-173127717-1"

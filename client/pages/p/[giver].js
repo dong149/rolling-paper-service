@@ -52,6 +52,8 @@ const Giver = (props) => {
       </div> */}
       <ReactFullpage
         slidesNavigation
+        contorlArrows={true}
+        dragAndMove={true}
         render={() => {
           return (
             <ReactFullpage.Wrapper>

@@ -66,7 +66,7 @@ const Papers = (props) => {
         },
       },
       social: {
-        likeCount: 100,
+        likeCount: 3023,
         commentCount: 202,
         sharedCount: 303,
       },
@@ -95,8 +95,8 @@ const Papers = (props) => {
         imageUrl:
           "https://github.com/dong149/image_resources/blob/master/rollingpaper/rollingpaper_thumbnail.jpeg?raw=true",
         link: {
-          webUrl: `https://rollingpaper.site/p/${name}?${password}`,
-          mobileWebUrl: `https://rollingpaper.site/p/${name}?${password}`,
+          webUrl: `https://rollingpaper.site/p/[giver]?name=${name}&pw=${password}&id=${id}`,
+          mobileWebUrl: `https://rollingpaper.site/p/[giver]?name=${name}&pw=${password}&id=${id}`,
         },
       },
       social: {
@@ -108,8 +108,8 @@ const Papers = (props) => {
         {
           title: "보러 가기",
           link: {
-            webUrl: `https://rollingpaper.site/p/${name}?${password}`,
-            mobileWebUrl: `https://rollingpaper.site/p/${name}?${password}`,
+            webUrl: `https://rollingpaper.site/p/[giver]?name=${name}&pw=${password}&id=${id}`,
+            mobileWebUrl: `https://rollingpaper.site/p/[giver]?name=${name}&pw=${password}&id=${id}`,
           },
         },
       ],
