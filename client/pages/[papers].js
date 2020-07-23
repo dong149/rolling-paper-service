@@ -56,8 +56,8 @@ const Papers = (props) => {
       container: "#kakao-link-btn",
       objectType: "feed",
       content: {
-        title: `${name}님을 위한 롤링페이퍼`,
-        description: "소중한 선물",
+        title: `${name}님을 위한 롤링페이퍼입니다!`,
+        description: "1분으로 친구에게 감동을 선물해주세요",
         imageUrl:
           "https://github.com/dong149/image_resources/blob/master/rollingpaper/present.png?raw=true",
         link: {
@@ -91,7 +91,7 @@ const Papers = (props) => {
       objectType: "feed",
       content: {
         title: `${name}님 생일 축하드립니다!`,
-        description: "친구들이 준비한 선물",
+        description: "당신만을 위한 세상에 하나 뿐인 롤링 페이퍼.",
         imageUrl:
           "https://github.com/dong149/image_resources/blob/master/rollingpaper/present.png?raw=true",
 
@@ -107,7 +107,7 @@ const Papers = (props) => {
       },
       buttons: [
         {
-          title: "보러 가기",
+          title: "열어보기",
           link: {
             webUrl: `https://rollingpaper.site/p/[giver]?name=${name}&pw=${password}&id=${id}`,
             mobileWebUrl: `https://rollingpaper.site/p/[giver]?name=${name}&pw=${password}&id=${id}`,
