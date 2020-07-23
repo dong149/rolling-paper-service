@@ -26,7 +26,7 @@ const Papers = (props) => {
   const id = rolling._id;
   const name = rolling.name;
   const password = rolling.password;
-
+  console.log("id", id);
   let encName = encodeURI(name);
   // console.log(encName);
   // console.log(name);

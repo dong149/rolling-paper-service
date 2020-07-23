@@ -11,7 +11,8 @@ import Head from "next/head";
 import ReactFullpage from "@fullpage/react-fullpage";
 const Giver = (props) => {
   const { rollings, name, password, id } = props;
-  console.log(rollings);
+  // console.log(rollings);
+  // console.log("context", context);
   console.log("name:", name);
   console.log("password", password);
   console.log("id", id);
@@ -101,6 +102,7 @@ Giver.getInitialProps = async (context) => {
     name: name,
     password: password,
     id: id,
+    // context: context,
   };
 };
 
