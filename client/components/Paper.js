@@ -19,7 +19,7 @@ const Paper = (props) => {
         <div
           className="paper-clicked"
           onClick={() => setIsClicked(!isClicked)}
-          style={{ backgroundColor: `${color}` }}
+          style={{ backgroundColor: `${color}`, border: `1px solid ${color}` }}
         >
           <div className="paper-author">
             <span>{author}</span>

@@ -87,6 +87,7 @@ Giver.getInitialProps = async (context) => {
   const name = context.query.giver;
   const password = context.asPath.split("?")[1];
   const id = context.asPath.split("?")[2];
+  console.log(context.asPath);
   const res = await rollingService.getRollingContent(id);
   console.log(name, password, id);
   return {

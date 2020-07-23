@@ -471,24 +471,10 @@ const Papers = (props) => {
                   <span>▼</span>
                 </div>
               </div> */}
-              <div className="section">
-                <a id="kakao-link-btn" className="share-btn">
-                  <span>공유하기</span>
-                </a>
 
-                {/* <Link href="/">
+              {/* <Link href="/">
         <span className="back-btn">돌아가기</span>
       </Link> */}
-
-                <Link href={`/p/${name}?${password}?${id}`}>
-                  <div className="preview-btn">
-                    <span>테스트하기</span>
-                  </div>
-                </Link>
-                <a id="kakao-link-btn-giver" className="present-btn">
-                  <span>주인공에게 공유</span>
-                </a>
-              </div>
             </ReactFullpage.Wrapper>
           );
         }}
