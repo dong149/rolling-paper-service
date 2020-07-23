@@ -59,7 +59,7 @@ const Papers = (props) => {
         title: `${name}님을 위한 롤링페이퍼`,
         description: "소중한 선물",
         imageUrl:
-          "https://github.com/dong149/image_resources/blob/master/rollingpaper/rollingpaper_thumbnail.jpeg?raw=true",
+          "https://github.com/dong149/image_resources/blob/master/rollingpaper/present.png?raw=true",
         link: {
           webUrl: `https://rollingpaper.site/${name}?${password}`,
           mobileWebUrl: `https://rollingpaper.site/${name}?${password}`,
@@ -93,7 +93,8 @@ const Papers = (props) => {
         title: `${name}님 생일 축하드립니다!`,
         description: "친구들이 준비한 선물",
         imageUrl:
-          "https://github.com/dong149/image_resources/blob/master/rollingpaper/rollingpaper_thumbnail.jpeg?raw=true",
+          "https://github.com/dong149/image_resources/blob/master/rollingpaper/present.png?raw=true",
+
         link: {
           webUrl: `https://rollingpaper.site/p/[giver]?name=${name}&pw=${password}&id=${id}`,
           mobileWebUrl: `https://rollingpaper.site/p/[giver]?name=${name}&pw=${password}&id=${id}`,
