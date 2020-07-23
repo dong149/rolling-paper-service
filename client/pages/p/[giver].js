@@ -60,18 +60,21 @@ const Giver = (props) => {
                   <span>▼</span>
                 </div> */}
               </div>
-              {rollings.map((object) => {
-                return (
-                  <div className="section">
-                    <Paper
-                      key={object._id}
-                      name={name}
-                      content={object.content}
-                      author={object.author}
-                    />
-                  </div>
-                );
-              })}
+              <div className="section">
+                {rollings.map((object) => {
+                  return (
+                    <div className="slide">
+                      <Paper
+                        key={object._id}
+                        name={name}
+                        content={object.content}
+                        author={object.author}
+                        color={object.color}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </ReactFullpage.Wrapper>
           );
         }}
