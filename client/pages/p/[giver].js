@@ -9,6 +9,7 @@ import "../../styles/home.scss";
 import "../../styles/papers.scss";
 import Head from "next/head";
 import ReactFullpage from "@fullpage/react-fullpage";
+import ParticlesBg from "particles-bg";
 const Giver = (props) => {
   const { rollings, name, password, id } = props;
   // console.log(rollings);
@@ -57,6 +58,7 @@ const Giver = (props) => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
+              <ParticlesBg type="circle" bg={true} />
               <div className="section section-first">
                 <header className="intro">
                   <h1>{name} 님</h1>

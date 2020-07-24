@@ -6,7 +6,8 @@ import "../styles/papers.scss";
 import Head from "next/head";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Start from "./start";
-
+import CountUp from "react-countup";
+import VisibilitySensor from "react-visibility-sensor";
 const Index = () => {
   const [img1Load, setImg1Load] = useState(false);
   const [img2Load, setImg2Load] = useState(false);
@@ -14,6 +15,7 @@ const Index = () => {
   const image1 = useRef();
   const image2 = useRef();
   const image3 = useRef();
+
   useEffect(() => {
     if (image1.current.complete) setImg1Load(true);
     if (image2.current.complete) setImg2Load(true);
@@ -93,9 +95,23 @@ const Index = () => {
                   <div className="question-text">
                     지금까지
                     <br />
-                    3502명이 작성하고
+                    <CountUp end={3243} redraw={true}>
+                      {({ countUpRef, start }) => (
+                        <VisibilitySensor onChange={start} delayedCall>
+                          <span ref={countUpRef} />
+                        </VisibilitySensor>
+                      )}
+                    </CountUp>
+                    명이 작성하고
                     <br />
-                    342명이 축하를
+                    <CountUp end={132} redraw={true}>
+                      {({ countUpRef, start }) => (
+                        <VisibilitySensor onChange={start} delayedCall>
+                          <span ref={countUpRef} />
+                        </VisibilitySensor>
+                      )}
+                    </CountUp>
+                    명이 축하를
                     <br />
                     받았어요!
                   </div>
