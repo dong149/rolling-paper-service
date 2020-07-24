@@ -9,11 +9,13 @@ import "../../styles/home.scss";
 import "../../styles/papers.scss";
 import Head from "next/head";
 import ReactFullpage from "@fullpage/react-fullpage";
-import ParticlesBg from "particles-bg";
+import dynamic from "next/dynamic";
+
+const ParticlesBg = dynamic(() => import("particles-bg"), { ssr: false });
+// import ParticlesBg from "particles-bg";
 const Giver = (props) => {
   const { rollings, name, password, id } = props;
   // console.log(rollings);
-
   console.log("name:", name);
   console.log("password", password);
   console.log("id", id);
@@ -83,6 +85,7 @@ const Giver = (props) => {
                   );
                 })}
               </div>
+              <div className="section"></div>
             </ReactFullpage.Wrapper>
           );
         }}
